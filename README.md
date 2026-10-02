@@ -2,7 +2,7 @@
 
 An evidence-grounded attendance analytics **prototype**. It answers a bounded set of operations questions with deterministic metrics, checks the supporting data, and withholds a result when the evidence is unreliable.
 
-**Watch the 2:17 demo with the user's narration:** [Four real workflow outcomes](portfolio/demo_walkthrough_user_voice.mp4) · [Run locally](#run-locally) · [Read the test report](TEST_REPORT.md)
+**Watch the 2:17 portfolio demo:** [Four real workflow outcomes on YouTube](https://youtu.be/vwnXP4ODHPs) · [MP4 copy](portfolio/demo_walkthrough_user_voice.mp4) · [Run locally](#run-locally) · [Read the test report](TEST_REPORT.md)
 
 Python · LangGraph · SQLite · Streamlit · Pytest · Synthetic data · No API key required
 

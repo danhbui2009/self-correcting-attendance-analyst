@@ -1,5 +1,17 @@
 # Module 2 test report
 
+## Portfolio Gate 4: public delivery (2026-10-02)
+
+| Check | Observed result |
+| --- | --- |
+| Release review | Independent read-only review found two local source paths in documentation and one redundant silent WebM. The paths were removed, the silent WebM was excluded from Git, and four screenshots were visually checked for personal data. The 18-row fixture uses `SYN-*` IDs. No credential assignments or private email addresses were found in staged text. `git diff --cached --check` reported no whitespace errors before the release commit. |
+| GitHub | Root commit `880b089` (`Release Module 2 attendance analyst portfolio`) included 41 files and pushed to `https://github.com/danhbui2009/self-correcting-attendance-analyst` on `main`. The GitHub UI showed the repo as Public, the files and README, and a Mermaid rendered-output container. A cookie-free HTTP request returned 200 and the expected repository title and README content. |
+| YouTube | The final user-voice MP4 was uploaded to YouTube Studio as `Self-Correcting Attendance Analyst — Portfolio Demo`, with corrected scene markers at 0:00, 0:47, 1:17, and 1:34. `Không công khai` (Unlisted) was selected; Studio reported `Đã đăng video`, link `https://youtu.be/vwnXP4ODHPs`, and no detected copyright issue. A cookie-free HTTP request to the watch URL returned 200 with the expected title, video ID, `streamingData`, and playable status `OK`; it did not indicate a private video. |
+| Upwork Portfolio | Upwork confirmed `Your portfolio project is published!`. The published item is `https://www.upwork.com/freelancers/~0147e7c3cab3202ec5?p=2105929358227718144`. Its preview showed the YouTube embed, Python/SQL/Data Analysis/Streamlit/LangGraph skills, a synthetic-data description, and the GitHub URL. An unauthenticated HTTP request met an Upwork challenge page, so public rendering outside the signed-in account was not independently confirmed. |
+| README link | The hero was changed to the YouTube watch URL and retained a GitHub-hosted MP4 copy. Final commit and push are recorded by Git history; no new code tests were run for this documentation-only change. |
+
+No application tests were added or rerun in Gate 4. The last fresh-environment application checks are recorded below.
+
 ## Portfolio Gate 2: fresh-environment verification (2026-10-02)
 
 A copy of the project source, fixture, UI, tests, and README was placed in `.portfolio_verify/` without the existing `.venv`. The commands below ran there using a newly created Python 3.11 environment. The first pip invocation was interrupted before package installation completed; the second invocation completed successfully. This verifies a fresh virtual environment on this Windows host, not a separate clean machine or a public download.
@@ -97,4 +109,4 @@ For Phase 2.5, the independent reviewer found no blocking correctness, accessibi
 
 ## Remaining limits
 
-No production connector, external database schema, or real attendance policy was tested. The UI and conflict scenario use synthetic data only. The detailed comparison dataframe scrolls horizontally on a 320 px viewport; the separate delta table supplies the key period values and change. A local Phase 2.6 video was recorded and verified as described above. No deployment or publication was performed.
+No production connector, external database schema, or real attendance policy was tested. The UI and conflict scenario use synthetic data only. The detailed comparison dataframe scrolls horizontally on a 320 px viewport; the separate delta table supplies the key period values and change. The Phase 2.6 video was recorded and verified locally, then published during Gate 4. The application itself was not deployed.

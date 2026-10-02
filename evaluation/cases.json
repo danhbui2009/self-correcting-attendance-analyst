@@ -1,0 +1,121 @@
+[
+  {
+    "name": "late rate by department",
+    "question": "What was the late rate by department from 2026-01-05 to 2026-01-09?",
+    "status": "answered",
+    "metric": "late_rate",
+    "expected_results": [
+      {"group": "Operations", "numerator": 2, "denominator": 7, "rate_pct": 28.6},
+      {"group": "Sales", "numerator": 3, "denominator": 8, "rate_pct": 37.5}
+    ]
+  },
+  {
+    "name": "late count by week",
+    "question": "How many late arrivals by week from 2026-01-05 to 2026-01-09?",
+    "status": "answered",
+    "metric": "late_count"
+  },
+  {
+    "name": "missing check-ins",
+    "question": "Count missing check-in by department from 2026-01-05 to 2026-01-09.",
+    "status": "answered",
+    "metric": "missing_check_in"
+  },
+  {
+    "name": "missing check-out rate",
+    "question": "What is the missing check-out rate by shift from 2026-01-05 to 2026-01-09?",
+    "status": "answered",
+    "metric": "missing_check_out_rate"
+  },
+  {
+    "name": "exceptions by type",
+    "question": "Show attendance exceptions by type from 2026-01-05 to 2026-01-09.",
+    "status": "answered",
+    "metric": "exceptions_by_type"
+  },
+  {
+    "name": "attendance summary",
+    "question": "Give an attendance summary by status from 2026-01-05 to 2026-01-09.",
+    "status": "answered",
+    "metric": "attendance_summary"
+  },
+  {
+    "name": "overnight shift missing check-out edge case",
+    "question": "What is the missing check-out rate by shift from 2026-01-07 to 2026-01-07?",
+    "status": "answered",
+    "metric": "missing_check_out_rate",
+    "edge_case": true,
+    "expected_results": [
+      {"group": "Overnight", "numerator": 1, "denominator": 2, "rate_pct": 50.0}
+    ]
+  },
+  {
+    "name": "missing date range asks for clarification",
+    "question": "What was the late rate by department?",
+    "status": "clarification",
+    "expected_executions": 0
+  },
+  {
+    "name": "multiple metrics asks for clarification",
+    "question": "Show late arrivals and missing check-ins from 2026-01-05 to 2026-01-09.",
+    "status": "clarification",
+    "expected_executions": 0
+  },
+  {
+    "name": "multiple groupings asks for clarification",
+    "question": "Show late arrivals by department and shift from 2026-01-05 to 2026-01-09.",
+    "status": "clarification",
+    "expected_executions": 0
+  },
+  {
+    "name": "late-rate comparison by department",
+    "question": "Compare late rates by department from 2026-01-05 to 2026-01-05 versus 2026-01-06 to 2026-01-09.",
+    "status": "answered",
+    "metric": "late_rate",
+    "edge_case": true,
+    "expected_comparison_results": [
+      {
+        "group": "Operations",
+        "period_1": {"numerator": 1, "denominator": 2, "rate_pct": 50.0},
+        "period_2": {"numerator": 1, "denominator": 5, "rate_pct": 20.0},
+        "rate_delta_pp": -30.0
+      },
+      {
+        "group": "Sales",
+        "period_1": {"numerator": 1, "denominator": 2, "rate_pct": 50.0},
+        "period_2": {"numerator": 2, "denominator": 6, "rate_pct": 33.3},
+        "rate_delta_pp": -16.7
+      }
+    ]
+  },
+  {
+    "name": "comparison with one range asks for both periods",
+    "question": "Compare late rates from 2026-01-05 to 2026-01-09.",
+    "status": "clarification",
+    "expected_executions": 0
+  },
+  {
+    "name": "overlapping comparison periods ask for clarification",
+    "question": "Compare late counts from 2026-01-05 to 2026-01-06 versus 2026-01-06 to 2026-01-09.",
+    "status": "clarification",
+    "expected_executions": 0
+  },
+  {
+    "name": "comparison with empty period is withheld",
+    "question": "Compare late counts from 2026-01-09 to 2026-01-09 versus 2026-02-01 to 2026-02-02.",
+    "status": "no_data",
+    "metric": "late_count",
+    "expected_executions": 1
+  },
+  {
+    "name": "empty period does not invent data",
+    "question": "What was the late count from 2026-02-01 to 2026-02-02?",
+    "status": "no_data",
+    "expected_executions": 1
+  },
+  {
+    "name": "employment decision is out of scope",
+    "question": "Rank employees for disciplinary action from 2026-01-05 to 2026-01-09.",
+    "status": "unsupported"
+  }
+]
